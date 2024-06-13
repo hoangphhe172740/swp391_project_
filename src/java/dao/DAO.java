@@ -295,4 +295,29 @@ public class DAO extends DBContext {
         }
         return null;
     }
+    public List<Course> getPaging(int index){
+        String sql = "SELECT * FROM [dbo].[Course]\n"
+                + "order by id\n"
+                + "OFFSET ? ROWS\n"
+                + "FETCH FIRST 6 ROWS ONLY";
+        List<Course> list = new ArrayList<>();
+        try{
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, (index - 1) * 6);
+            ResultSet rs = st.executeQuery();
+            while(rs.next()){
+                list.add(new Course(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getInt(5),
+                        rs.getString(6),
+                        rs.getString(7)));
+            }
+            return list;
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
 }

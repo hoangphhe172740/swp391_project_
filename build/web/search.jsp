@@ -198,6 +198,37 @@
         .active1{
             background: chocolate;
         }
+        select {
+            padding: 10px 15px;
+            border-radius: 5px;
+            border: 1px solid #ccc;
+            background-color: white;
+            font-size: 16px;
+            color: #333;
+            box-shadow: 0 3px 6px rgba(0, 0, 0, 0.1);
+            -webkit-appearance: none; /* Removes default chrome and safari style */
+            -moz-appearance: none; /* Removes default style Firefox */
+            appearance: none; /* Remove default style for IE */
+        }
+
+        /* Custom arrow */
+        select {
+            background-image: url('data:image/svg+xml;charset=US-ASCII,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 20 20"><path fill="%23666" d="M17.418,6.109c0.272-0.268,0.709-0.268,0.979,0c0.269,0.268,0.269,0.701,0,0.969l-7.908,7.83c-0.269,0.268-0.705,0.268-0.974,0l-7.908-7.83c-0.269-0.268-0.269-0.701,0-0.969s0.707-0.268,0.979,0L10,13.25L17.418,6.109z"/></svg>');
+            background-repeat: no-repeat, repeat;
+            background-position: right .7em top 50%, 0 0;
+            background-size: .65em auto, 100%;
+        }
+
+        .select:focus {
+            outline: none;
+            border-color: #9ecaed;
+            box-shadow: 0 0 10px #9ecaed;
+        }
+
+        /* Style for screen readers */
+        .select::-ms-expand {
+            display: none; /* Hide the default arrow in IE */
+        }
     </style>
     <body>
         <section class="top-area">
@@ -219,10 +250,24 @@
         </section>
         <div class="container">
             <div class="row">
+                <div class="col-12 text-right mb-5">
+                    <form action="search" id="f1">
+                        <select name="sort" id="sort">
+                            <option value="default" ${sort=='default'?"selected":""}>Default</option>
+                            <option value="sortByCreasePrice" ${sort=='sortByCreasePrice'?"selected":""}>Sort by increasing Price</option>
+                            <option value="sortByDecresePrice" ${sort=='sortByDecresePrice'?"selected":""}>Sort by descending Price </option>
+                            <option value="sortByName" ${sort=='sortByName'?"selected":""}>Sort by name </option>
+                        </select>
+                    </form>
+                </div>
+            </div>
+        </div>
+        <div class="container">
+            <div class="row">
                 <jsp:include page="left.jsp"></jsp:include>
                     <div class="col-sm-9 pt-4">
                         <div class="row">
-                        <c:forEach items="${requestScope.listcourses}" var="c">
+                        <c:forEach items="${requestScope.listc}" var="c">
                             <div class="col-12 col-md-6 col-lg-4 mb-2">
                                 <div class="card-top">
                                     <img class="card-img-top" src="${c.image}" alt="Card image cap">
@@ -230,6 +275,11 @@
                                         <h4 class="card-title"><a href="detail?pid=${c.id}" title="View Course">${c.name}</a></h4>                                       
                                         <p class="card-text"><b>Skills you'll gain:</b> ${c.title}</p>
                                         <i class="fa-solid fa-star" style="color: yellowgreen;"></i><b> 4.8</b>
+                                        <div class="row">
+                                            <div class="col">
+                                                <p class="btn btn-danger btn-block">${c.price}</p>
+                                            </div>
+                                        </div>
                                     </div>
                                 </div>
                             </div>

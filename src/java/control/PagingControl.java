@@ -13,6 +13,8 @@ import jakarta.servlet.annotation.WebServlet;
 import jakarta.servlet.http.HttpServlet;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import java.util.List;
+import model.Course;
 
 /**
  *
@@ -34,6 +36,16 @@ public class PagingControl extends HttpServlet {
         String paging_raw = request.getParameter("paging");
         int paging;
         DAO d = new DAO();
+        List<Course> list = null;
+        if(paging_raw == null){
+            paging = 1;
+        }else{
+            paging = Integer.parseInt(paging_raw);
+        }
+        list = d.getPaging(paging);
+        System.out.println(list);
+        request.setAttribute("Listc", list);
+        request.getRequestDispatcher("search.jsp").forward(request, response);
     } 
     @Override
     protected void doGet(HttpServletRequest request, HttpServletResponse response)

@@ -7,7 +7,7 @@
         <ul class="list-group category_block">
             <c:set var="cid" value="${requestScope.cid}"/>
             <!--FORM-->
-            <form id="formCategory" action="seach" method="get">
+            <form id="formCategory" action="search" method="get">
                 <li class="list-group-item text-left ${chid[0] ? "active" : ""}">
                     <input type="checkbox" name="cidd" id="c0" 
                            ${chid[0]?"checked":""}
@@ -24,6 +24,7 @@
                     </li>
                 </c:forEach>
                 <input name = "page" id="paging" value="1" hidden />
+                <input name = "sort" id="sortForm" value="default" hidden />
             </form>
 
             <!--END FORM-->
@@ -35,6 +36,7 @@
                 <h5 class="card-title"><a href="detail?pid=${pnew.id}">${pnew.name}</a></h5>
                 <p class="card-text"><b>Skills you'll gain:</b> ${pnew.title}</p>
                 <i class="fa-solid fa-star" style="color: yellowgreen;"></i><b> 4</b>
+                <p class="btn btn-danger btn-block">${pnew.price} $</p>
             </div>
         </div>
     </div>
