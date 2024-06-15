@@ -125,6 +125,7 @@ public class SearchControl extends HttpServlet {
         int paging = 1;
         String sort;
         sort = request.getParameter("sort") != null ? request.getParameter("sort") : "default";
+        //
         Course pnew = d.getNewCourse();
         //
         String paging_raw = request.getParameter("page");

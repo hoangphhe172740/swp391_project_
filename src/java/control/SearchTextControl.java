@@ -21,8 +21,8 @@ import model.Course;
  *
  * @author Admin
  */
-@WebServlet(name="SeachTextControl", urlPatterns={"/seachtext"})
-public class SeachTextControl extends HttpServlet {
+@WebServlet(name="SearchTextControl", urlPatterns={"/searchtext"})
+public class SearchTextControl extends HttpServlet {
 
     protected void processRequest(HttpServletRequest request, HttpServletResponse response)
     throws ServletException, IOException {

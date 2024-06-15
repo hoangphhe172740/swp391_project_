@@ -45,7 +45,8 @@
                         <a class="nav-link" href="login.jsp">Login</a>
                     </li>
                 </c:if>
-            </ul>   
+            </ul>
+            
         </div>
     </div>
 </nav>

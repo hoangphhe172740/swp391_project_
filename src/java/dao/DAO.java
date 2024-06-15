@@ -307,4 +307,40 @@ public class DAO extends DBContext {
         }
         return null;
     }
+    public Course getCourseById(int id){
+        List<Course> list = new ArrayList<>();
+        String sql = "select * from course where id = ?";
+        try{
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if(rs.next()){
+                return new Course(rs.getInt(1),
+                        rs.getString(2),
+                        rs.getString(3),
+                        rs.getDouble(4),
+                        rs.getString(5),
+                        rs.getString(6),
+                        rs.getInt(8));
+            }
+        }catch(SQLException ex){
+            System.out.println(ex);
+        }
+        return null;
+    }
+    public int getCidById(int id){
+        int cid =0;
+        String sql = "select category_id from course where id = ?";
+        try {
+            PreparedStatement st = connection.prepareStatement(sql);
+            st.setInt(1, id);
+            ResultSet rs = st.executeQuery();
+            if (rs.next()) {
+                cid = rs.getInt("category_id");
+            }
+        } catch (SQLException ex) {
+            System.out.println(ex);
+        }
+        return cid;
+    }
 }

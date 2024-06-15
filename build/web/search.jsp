@@ -235,18 +235,12 @@
             <div>
                 <a href="#"><img src="img/360_F_128939133_0WXTVdZ1bv1NXusQsdYYJLIwTVoXHqQ7.jpg" alt="" width="90px"/></a>
             </div>
-            <form action="seachtext" method="post">
+            <form action="searchtext" method="post">
                 <div class="search-box">
                     <input name="txt"  value="${txtS}"type="text" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search..." style=" border-radius: 20px; padding-left: 10px; background-color: #fff; margin: 10px 10px; padding-right: 70px; font-size: 16px;">
                     <button type="submit"><i class="fa-solid fa-magnifying-glass" style="font-size: 16px;"></i></button>
                 </div>
             </form>
-            <div class="top-menu1">
-                <ul>
-                    <li><a href="login.jsp">Log in</a></li>
-                    <li><a href="register.jsp">Sign Up</a></li>
-                </ul>
-            </div>
         </section>
         <div class="container">
             <div class="row">
@@ -272,7 +266,7 @@
                                 <div class="card-top">
                                     <img class="card-img-top" src="${c.image}" alt="Card image cap">
                                     <div class="card-body">
-                                        <h4 class="card-title"><a href="detail?pid=${c.id}" title="View Course">${c.name}</a></h4>                                       
+                                        <h4 class="card-title"><a href="detail?Courseid=${c.id}" title="View Course">${c.name}</a></h4>                                       
                                         <p class="card-text"><b>Skills you'll gain:</b> ${c.title}</p>
                                         <i class="fa-solid fa-star" style="color: yellowgreen;"></i><b> 4.8</b>
                                         <div class="row">
