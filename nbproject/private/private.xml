@@ -5,9 +5,8 @@
         <group>
             <file>file:/E:/prj301/project-swp391-test1/web/left.jsp</file>
             <file>file:/E:/prj301/project-swp391-test1/web/search.jsp</file>
-            <file>file:/E:/prj301/project-swp391-test1/src/java/model/Account.java</file>
-            <file>file:/E:/prj301/project-swp391-test1/src/java/control/SearchControl.java</file>
             <file>file:/E:/prj301/project-swp391-test1/src/java/control/PagingControl.java</file>
+            <file>file:/E:/prj301/project-swp391-test1/src/java/control/SearchControl.java</file>
             <file>file:/E:/prj301/project-swp391-test1/src/java/model/Course.java</file>
             <file>file:/E:/prj301/project-swp391-test1/src/java/dao/DAO.java</file>
             <file>file:/E:/prj301/project-swp391-test1/src/java/control/CategoryServlet.java</file>

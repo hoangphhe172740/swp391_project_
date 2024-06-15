@@ -25,8 +25,7 @@
                 </c:forEach>
                 <input name = "page" id="paging" value="1" hidden />
                 <input name = "sort" id="sortForm" value="default" hidden />
-            </form>
-
+            </form>                    
             <!--END FORM-->
         </ul>
         <div class="card bg-light mb-3">

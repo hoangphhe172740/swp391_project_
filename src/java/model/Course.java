@@ -15,7 +15,7 @@ public class Course {
     public Course() {
     }
 
-    public Course(int id, String name, String description, double price, int category_id, String image, String title) {
+    public Course(int id, String name, String description, double price, String image, String title, int category_id) {
         this.id = id;
         this.name = name;
         this.description = description;
@@ -80,9 +80,8 @@ public class Course {
     public void setCategory_id(int category_id) {
         this.category_id = category_id;
     }
-    
     @Override
-    public String toString() {
-        return "Course{" + "id=" + id + ", name=" + name + ", image=" + image + ", price=" + price + ", title=" + title + ", description=" + description + '}';
+    public String toString(){
+        return "Course{"+ "id=" + id + ", name=" + name + ", image=" + image + ", price=" + price + ", title=" + title + ", description=" + description + '}';
     }
 }

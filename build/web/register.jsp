@@ -35,8 +35,12 @@
                         </div>
                         <!----Full name---->
                         <div>
-                            <b class="mb-3">FULLNAME</b>
+                            <b class="mb-3">USERNAME</b>
                             <input name="user" type="text" id="inputname" class="form-control form-control-lg mb-3 mt-2" placeholder="Enter Your Full Name" autofocus="" required="">
+                        </div>
+                        <div>
+                            <b class="mb-3">FULLNAME</b>
+                            <input name="fullname" type="text" id="inputname" class="form-control form-control-lg mb-3 mt-2" placeholder="Enter Your Full Name" autofocus="" required="">
                         </div>
                         <!--Password -->
                         <div>

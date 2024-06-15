@@ -20,11 +20,8 @@ public class DAO extends DBContext {
         String sql = "SELECT [uID]\n"
                 + "      ,[user]\n"
                 + "      ,[pass]\n"
-                + "      ,[fullname]\n"
                 + "      ,[email]\n"
                 + "      ,[role]\n"
-                + "      ,[isAdmin]\n"
-                + "      ,[avatar]\n"
                 + "  FROM [projectSWP].[dbo].[Account]"
                 + " where [email] = ? and [pass] = ?";
         try {
@@ -37,10 +34,7 @@ public class DAO extends DBContext {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getString(4),
-                        rs.getString(5),
-                        rs.getString(6),
-                        rs.getInt(7),
-                        (rs.getString(8) == null) ? "" : rs.getString(8));
+                        rs.getString(5));
             }
         } catch (SQLException e) {
             System.out.println(e);
@@ -54,15 +48,14 @@ public class DAO extends DBContext {
                     + "           ([user]\n"
                     + "           ,[email]\n"
                     + "           ,[pass]\n"
+                    + "           ,[fullname]\n"
                     + "           ,[role]\n"
-                    + "           ,[isAdmin])\n"
                     + "           VALUES(?,?,?,?,?)";
             PreparedStatement st = connection.prepareStatement(sql);
             st.setString(1, user);
             st.setString(2, email);
             st.setString(3, pass);
-            st.setString(4, "5");
-            st.setString(5, "0");
+            st.setString(5, "4");
             // vcl chiu luon
             st.executeUpdate();
         } catch (SQLException ex) {
@@ -74,11 +67,8 @@ public class DAO extends DBContext {
         String sql = "SELECT [uID]\n"
                 + "      ,[user]\n"
                 + "      ,[pass]\n"
-                + "      ,[fullname]\n"
                 + "      ,[email]\n"
                 + "      ,[role]\n"
-                + "      ,[isAdmin]\n"
-                + "      ,[avatar]\n"
                 + "  FROM [projectSWP].[dbo].[Account]"
                 + " where [email] = ?";
         try {
@@ -110,14 +100,7 @@ public class DAO extends DBContext {
 
     public List<Course> getAllCourse() {
         List<Course> list = new ArrayList<>();
-        String sql = "SELECT  [id]\n"
-                + "      ,[name]\n"
-                + "      ,[description]\n"
-                + "      ,[price]\n"
-                + "      ,[category_id]\n"
-                + "      ,[image]\n"
-                + "      ,[title]\n"
-                + "  FROM [projectSWP].[dbo].[Course]";
+        String sql = "SELECT * from Course";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
@@ -126,9 +109,9 @@ public class DAO extends DBContext {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getDouble(4),
-                        rs.getInt(5),
+                        rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)));
+                        rs.getInt(8)));
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -155,13 +138,14 @@ public class DAO extends DBContext {
 
     public List<Course> getCourseByCid(int cid) {
         List<Course> list = new ArrayList<>();
-        String sql = "SELECT [id]\n"
+        String sql = "SELECT  [id]\n"
                 + "      ,[name]\n"
                 + "      ,[description]\n"
-                + "      ,[price]\n"
-                + "      ,[category_id]\n"
+                + "      ,[price]\n"              
                 + "      ,[image]\n"
                 + "      ,[title]\n"
+                + "      ,[created_by]\n"               
+                + "      ,[category_id]\n"
                 + "  FROM [projectSWP].[dbo].[Course]"
                 + "where 1=1 ";
         if (cid != 0) {
@@ -175,9 +159,9 @@ public class DAO extends DBContext {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getDouble(4),
-                        rs.getInt(5),
+                        rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)));
+                        rs.getInt(8)));
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -187,13 +171,14 @@ public class DAO extends DBContext {
 
     public List<Course> searchByCheck(int[] cid) {
         List<Course> list = new ArrayList<>();
-        String sql = "SELECT [id]\n"
+        String sql = "SELECT  [id]\n"
                 + "      ,[name]\n"
                 + "      ,[description]\n"
-                + "      ,[price]\n"
-                + "      ,[category_id]\n"
+                + "      ,[price]\n"              
                 + "      ,[image]\n"
                 + "      ,[title]\n"
+                + "      ,[created_by]\n"
+                + "      ,[category_id]\n"
                 + "  FROM [projectSWP].[dbo].[Course]"
                 + "where 1=1 ";
         if (cid != null && cid[0] != 0) {
@@ -214,9 +199,9 @@ public class DAO extends DBContext {
                         rs.getString(2),
                         rs.getString(3),
                         rs.getDouble(4),
-                        rs.getInt(5),
+                        rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)));
+                        rs.getInt(8)));
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -226,13 +211,13 @@ public class DAO extends DBContext {
 
     public List<Course> getListCourseSearch(String txtSearch) {
         List<Course> list = new ArrayList<>();
-        String sql = "SELECT [id]\n"
+        String sql = "SELECT  [id]\n"
                 + "      ,[name]\n"
                 + "      ,[description]\n"
                 + "      ,[price]\n"
-                + "       ,[category_id]"
                 + "      ,[image]\n"
                 + "      ,[title]\n"
+                + "      ,[category_id]\n"
                 + "  FROM [projectSWP].[dbo].[Course] where [name] like ? or [title] like ?";
         try {
             PreparedStatement st = connection.prepareStatement(sql);
@@ -240,13 +225,14 @@ public class DAO extends DBContext {
             st.setString(2, "%" + txtSearch + "%");
             ResultSet rs = st.executeQuery();
             while (rs.next()) {
-                list.add(new Course(rs.getInt(1),
+                Course c = new Course(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getDouble(4),
-                        rs.getInt(5),
+                        rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)));
+                        rs.getInt(7));
+                list.add(c);
             }
         } catch (SQLException ex) {
             System.out.println(ex);
@@ -281,41 +267,42 @@ public class DAO extends DBContext {
         try {
             PreparedStatement st = connection.prepareStatement(sql);
             ResultSet rs = st.executeQuery();
-            if(rs.next()){
+            if (rs.next()) {
                 return new Course(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getDouble(4),
-                        rs.getInt(5),
+                        rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7));
+                        rs.getInt(7));
             }
         } catch (SQLException ex) {
             System.out.println(ex);
         }
         return null;
     }
-    public List<Course> getPaging(int index){
+
+    public List<Course> getPaging(int index) {
         String sql = "SELECT * FROM [dbo].[Course]\n"
                 + "order by id\n"
                 + "OFFSET ? ROWS\n"
                 + "FETCH FIRST 6 ROWS ONLY";
         List<Course> list = new ArrayList<>();
-        try{
+        try {
             PreparedStatement st = connection.prepareStatement(sql);
             st.setInt(1, (index - 1) * 6);
             ResultSet rs = st.executeQuery();
-            while(rs.next()){
+            while (rs.next()) {
                 list.add(new Course(rs.getInt(1),
                         rs.getString(2),
                         rs.getString(3),
                         rs.getDouble(4),
-                        rs.getInt(5),
+                        rs.getString(5),
                         rs.getString(6),
-                        rs.getString(7)));
+                        rs.getInt(7)));
             }
             return list;
-        }catch(SQLException ex){
+        } catch (SQLException ex) {
             System.out.println(ex);
         }
         return null;

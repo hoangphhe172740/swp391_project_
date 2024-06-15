@@ -9,6 +9,8 @@
 <html>
     <head>
         <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+        <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous"/>
+        <link rel="stylesheet" href="https://use.fontawesome.com/releases/v5.3.1/css/all.css" integrity="sha384-mzrmE5qonljUremFsqc01SB46JvROS7bZs3IO2EmfFsd15uHvIt+Y8vEf7N7fWAU" crossorigin="anonymous"/>
         <title>New password</title>
     </head>
     <body>
@@ -29,6 +31,9 @@
                         <div>
                             <b class="mb-3">CONFIRM PASSWORD</b>
                             <input name="repass" type="password"  class="form-control form-control-lg mb-3 mt-2" placeholder="Confirm password" required="" autofocus="">
+                        </div>
+                        <div>
+                            <button type="submit" data-mdb-button-init data-mdb-ripple-init class="btn btn-primary btn-lg btn-block mt-3">Submit</button>
                         </div>
                     </form>
                 </div>

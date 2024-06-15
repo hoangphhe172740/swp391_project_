@@ -47,6 +47,7 @@ public class RegisterControl extends HttpServlet {
     @Override
     protected void doPost(HttpServletRequest request, HttpServletResponse response)
             throws ServletException, IOException {
+        String fullname = request.getParameter("fullname");
         String user = request.getParameter("user");
         String email = request.getParameter("email");
         

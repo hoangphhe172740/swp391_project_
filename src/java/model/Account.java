@@ -8,23 +8,18 @@ public class Account {
     private int id;
     private String email;
     private String pass;
-    private String fullname,user;
+    private String user;
     private String role;
-    private int isAdmin;
-    private String avatar;
 
     public Account() {
     }
 
-    public Account(int id, String email, String pass, String fullname, String user, String role, int isAdmin, String avatar) {
+    public Account(int id, String email, String pass, String user, String role) {
         this.id = id;
         this.email = email;
         this.pass = pass;
-        this.fullname = fullname;
         this.user = user;
         this.role = role;
-        this.isAdmin = isAdmin;
-        this.avatar = avatar;
     }
 
     public int getId() {
@@ -51,14 +46,6 @@ public class Account {
         this.pass = pass;
     }
 
-    public String getFullname() {
-        return fullname;
-    }
-
-    public void setFullname(String fullname) {
-        this.fullname = fullname;
-    }
-
     public String getUser() {
         return user;
     }
@@ -73,23 +60,5 @@ public class Account {
 
     public void setRole(String role) {
         this.role = role;
-    }
-
-    public int getIsAdmin() {
-        return isAdmin;
-    }
-
-    public void setIsAdmin(int isAdmin) {
-        this.isAdmin = isAdmin;
-    }
-
-    public String getAvatar() {
-        return avatar;
-    }
-
-    public void setAvatar(String avatar) {
-        this.avatar = avatar;
-    }
-
-    
+    }   
 }

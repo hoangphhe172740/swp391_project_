@@ -148,19 +148,19 @@ public class SearchControl extends HttpServlet {
         } catch (Exception e) {
             System.out.println("Nothing");
         }
-        request.setAttribute("listc", listcourse);
+        
         request.setAttribute("chid", chid);
-        request.setAttribute("cid", cid);
-        request.setAttribute("page", paging);
+        request.setAttribute("cid", cid);      
         request.setAttribute("page", paging);
         request.setAttribute("pnew", pnew);
-        request.setAttribute("sort", sort);
+        
         if (listPage != null) {
             request.setAttribute("listc", listPage);
         } else {
             request.setAttribute("error", "No product");
         }
         request.setAttribute("listC", listCate);
+        request.setAttribute("sort", sort);
         request.getRequestDispatcher("search.jsp").forward(request, response);
     }
 
