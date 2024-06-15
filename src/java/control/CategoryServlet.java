@@ -136,7 +136,7 @@ public class CategoryServlet extends HttpServlet {
         System.out.println(paging);
         
         List<Course> list = sort(sort, courses);
-        List<Course> listPage = list.subList(6 * (paging - 1), (paging * 6) < list.size() ? paging * 6 : list.size());
+        List<Course> listPage = list.subList(9 * (paging - 1), (paging * 9) < list.size() ? paging * 9 : list.size());
         request.setAttribute("chid", chid);
         request.setAttribute("cidd", cidd);
         request.setAttribute("page", paging);

@@ -141,7 +141,7 @@ public class SearchControl extends HttpServlet {
         List<Course> list = sort(sort,courses.isEmpty() ? listcourse : courses);
         List<Course> listPage = null;
         try {
-            listPage = list.subList(6 * (paging - 1), (paging * 6) <= list.size() ? paging * 6 : list.size());
+            listPage = list.subList(9 * (paging - 1), (paging * 9) <= list.size() ? paging * 9 : list.size());
             if (listPage.isEmpty()) {
                 listPage = null;
             }

@@ -235,10 +235,10 @@
             <div>
                 <a href="#"><img src="img/360_F_128939133_0WXTVdZ1bv1NXusQsdYYJLIwTVoXHqQ7.jpg" alt="" width="90px"/></a>
             </div>
-            <form action="search" method="post">
+            <form action="seachtext" method="post">
                 <div class="search-box">
-                    <input name="txt" type="text" placeholder="What do you want to learn?" style=" border-radius: 20px; padding-left: 10px; background-color: #fff; margin: 10px 10px; padding-right: 70px; font-size: 16px;">
-                    <button><i class="fa-solid fa-magnifying-glass" style="font-size: 16px;"></i></button>
+                    <input name="txt"  value="${txtS}"type="text" aria-label="Small" aria-describedby="inputGroup-sizing-sm" placeholder="Search..." style=" border-radius: 20px; padding-left: 10px; background-color: #fff; margin: 10px 10px; padding-right: 70px; font-size: 16px;">
+                    <button type="submit"><i class="fa-solid fa-magnifying-glass" style="font-size: 16px;"></i></button>
                 </div>
             </form>
             <div class="top-menu1">
