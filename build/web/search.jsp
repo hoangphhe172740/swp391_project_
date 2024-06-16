@@ -117,6 +117,7 @@
             width: 100%;
             height: 150px;
             object-fit: cover;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
         }
 
         .card-body {
@@ -265,6 +266,9 @@
                             <div class="col-12 col-md-6 col-lg-4 mb-2">
                                 <div class="card-top">
                                     <img class="card-img-top" src="${c.image}" alt="Card image cap">
+                                    <div class="e-learning-icon">
+                                        <i class="fa-solid fa-graduation-cap" style=" padding: 10px 15px; color: #0056b3;"> E-Learning</i>
+                                    </div>
                                     <div class="card-body">
                                         <h4 class="card-title"><a href="detail?Courseid=${c.id}" title="View Course">${c.name}</a></h4>                                       
                                         <p class="card-text"><b>Skills you'll gain:</b> ${c.title}</p>
