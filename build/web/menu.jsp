@@ -10,31 +10,31 @@
 <nav class="navbar navbar-expand-md navbar-dark bg-dark navMenu">
     <div class="menu">
         <div class="col-md-9 col-lg-6 col-xl-5"><a>
-                <img src="img/thu-vien-elearning-va-nhung-thong-tin-can-nam-bat.jpg"
+                <img src="img/360_F_128939133_0WXTVdZ1bv1NXusQsdYYJLIwTVoXHqQ7.jpg"
                      class="img-fluid" alt="Sample image"></a>
+                     
         </div>
-
         <div class="collapse navbar-collapse justify-content-end" id="navbarsExampleDefault">
             <ul>
                 <c:if test="${sessionScope.acc.role == 2}">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Manage Mentor</a>
+                        <a class="nav-link" href="manageMentor">Manage Mentor</a>
                     </li> 
                 </c:if>
                 <c:if test="${sessionScope.acc.role == 2}">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Manage Course</a>
+                        <a class="nav-link" href="manageCourse">Manage Course</a>
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.acc.role == 2}">
                     <li class="nav-item">
-                        <a class="nav-link" href="#">Statistic</a>
+                        <a class="nav-link" href="statistic">Statistic</a>
                     </li>
                 </c:if>
                 <c:if test="${sessionScope.acc != null}">
                     <c:set value="${sessionScope.acc}" var="acc"/>
                     <li class="nav-item">
-                        <a class="nav-link" href="profile?id=${acc.id}"><i class="fa-solid fa-user"></i>${acc.user}</a>
+                        <a class="nav-link" href="profile?id=${acc.id}"><i class="fa-solid fa-user"></i>${acc.email}</a>
                     </li>
                     <li class="nav-item">
                         <a class="nav-link" href="logout">Logout</a>

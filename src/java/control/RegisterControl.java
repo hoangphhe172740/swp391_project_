@@ -66,7 +66,7 @@ public class RegisterControl extends HttpServlet {
             request.getRequestDispatcher("register.jsp").forward(request, response);
         } else {
             d.SignUp(user, email, pass);
-            response.sendRedirect("login.jsp");
+            response.sendRedirect("login");
         }
     }
 }

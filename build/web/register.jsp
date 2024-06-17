@@ -65,7 +65,7 @@
                             <i class="fab fa-google me-2"></i>Continue with google</a>
                         <div class="d-flex align-items-center justify-content-center pt-3">
                             <p class="mb-0 me-2">Already on Coursera? </p>
-                            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn"><a href="login.jsp">Sign In</a></button>
+                            <button  type="button" data-mdb-button-init data-mdb-ripple-init class="btn"><a href="Login">Sign In</a></button>
                         </div>
                     </form>
                 </div>
